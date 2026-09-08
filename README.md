@@ -67,6 +67,17 @@ No specific technology stack is assumed or included.
 | `09_AI/` | How the AI should work and what its boundaries are. |
 | `99_FUTURE/` | What might we want later? Never the current task. |
 
+## V0.2 Governance
+
+This template adds four enforceable capabilities on top of the base flow:
+
+- **STOP GATES** — every workflow step has a hard blocking condition (`09_AI/WORKFLOW.md`).
+- **TRACEABILITY** — Requirement → Spec → Design → Task → Test → Verification, forward and reverse (`05_TASKS/TRACEABILITY.md`).
+- **STATE MACHINE** — explicit Task lifecycle with forbidden transitions and a `BLOCKED` state (`08_STATE/STATE_MACHINE.md`).
+- **AUTHORITY MATRIX** — Human authorizes, AI executes within approval (`PROJECT_CONTRACT.md`).
+
+V0.2 is governance + documentation + structure. It is not a software system.
+
 ## AI Basic Workflow
 
 Each time the AI works, it follows a fixed flow:

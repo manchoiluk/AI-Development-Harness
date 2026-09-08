@@ -65,3 +65,56 @@ A task is complete only when:
 
 When documents conflict, do not guess.
 Report the conflict and request Human resolution.
+
+## Authority Matrix
+
+| Area | Human | AI |
+|------|-------|-----|
+| Product Direction | AUTHORIZE | PROPOSE |
+| Product Scope | AUTHORIZE | PROPOSE |
+| Requirements | AUTHORIZE | PROPOSE |
+| Spec | AUTHORIZE | IMPLEMENT WITHIN APPROVAL |
+| Design | AUTHORIZE | IMPLEMENT WITHIN APPROVAL |
+| Code | OVERSIGHT | EXECUTE |
+| Tests | OVERSIGHT | EXECUTE |
+| Debugging | OVERSIGHT | EXECUTE |
+| Refactoring | OVERSIGHT | EXECUTE |
+| Verification | FINAL AUTHORITY | EXECUTE |
+| Acceptance | FINAL AUTHORITY | PREPARE |
+| Change Approval | AUTHORIZE | PROPOSE |
+| Project State | OVERSIGHT | UPDATE |
+
+## PROPOSE ≠ AUTHORIZE
+
+AI may propose. AI may not approve.
+
+The AI may say:
+
+> I suggest adding feature X.
+
+The AI must NOT say:
+
+> I added feature X because it is useful.
+
+The AI MUST wait for the Human.
+
+## Change Authority
+
+The following changes REQUIRE Human approval:
+
+- Product scope
+- Product behavior
+- Requirement
+- Locked Spec
+- Locked Design
+- Major architecture direction
+
+The AI may:
+
+- Discover problems
+- Analyze impact
+- Propose options
+
+The AI must NOT:
+
+- Approve changes on its own
