@@ -1,0 +1,5 @@
+# macOS junk
+.DS_Store
+
+# WorkBuddy internal project data (memory, not part of the template)
+.workbuddy-ai/
