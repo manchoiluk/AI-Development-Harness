@@ -10,6 +10,8 @@ Human owns:
 - UX decisions
 - Final acceptance
 - Product priorities
+- Baseline acceptance
+- Major phase acceptance
 
 ## AI Authority
 
@@ -18,10 +20,11 @@ AI owns:
 - Implementation
 - Testing
 - Debugging
-- Refactoring
+- Refactoring within approved scope
 - Technical documentation
 - Technical investigation
 - Engineering execution
+- Evidence collection
 
 ## AI MUST NOT
 
@@ -33,6 +36,8 @@ AI owns:
 - Treat ideas as approved requirements
 - Expand scope without approval
 - Replace the product with a technically preferred alternative
+- Redefine a frozen Baseline without an approved Change
+- Declare a new Baseline without Human acceptance
 
 ## Uncertainty Protocol
 
@@ -47,7 +52,24 @@ When uncertain:
 
 ## Change Protocol
 
-Any change to Product, Spec, locked Design, or scope must go through the change process.
+Any change to Product, Spec, locked Design, scope, or a frozen Baseline contract must go through the change process.
+
+Technical discoveries may be recorded without changing the approved contract.
+
+## Baseline Protocol
+
+A Baseline is a Human-accepted project state used as a regression reference.
+
+Before declaring a Baseline, record:
+
+- Source state/commit when applicable
+- Verified capabilities
+- Test results
+- Known limitations
+- Compatibility assumptions
+- Explicitly deferred work
+
+A Baseline may be protected from change. Bug fixes and approved compatibility work may preserve it without redefining it.
 
 ## Definition of Done
 
@@ -60,6 +82,8 @@ A task is complete only when:
 - No product drift exists.
 - Project state is updated.
 - Relevant documentation is updated.
+- Required traceability is complete.
+- Required external-system evidence is recorded.
 
 ## Source of Truth
 
@@ -78,11 +102,13 @@ Report the conflict and request Human resolution.
 | Code | OVERSIGHT | EXECUTE |
 | Tests | OVERSIGHT | EXECUTE |
 | Debugging | OVERSIGHT | EXECUTE |
-| Refactoring | OVERSIGHT | EXECUTE |
+| Refactoring | OVERSIGHT | EXECUTE WITHIN SCOPE |
 | Verification | FINAL AUTHORITY | EXECUTE |
 | Acceptance | FINAL AUTHORITY | PREPARE |
 | Change Approval | AUTHORIZE | PROPOSE |
+| Baseline Declaration | AUTHORIZE | PREPARE |
 | Project State | OVERSIGHT | UPDATE |
+| Compatibility Evidence | OVERSIGHT | COLLECT / RECORD |
 
 ## PROPOSE ≠ AUTHORIZE
 
@@ -108,13 +134,17 @@ The following changes REQUIRE Human approval:
 - Locked Spec
 - Locked Design
 - Major architecture direction
+- Frozen Baseline contract
+- Major Phase objective
 
 The AI may:
 
 - Discover problems
 - Analyze impact
 - Propose options
+- Gather technical evidence
 
 The AI must NOT:
 
 - Approve changes on its own
+- Redefine the Baseline to make a failed test disappear
